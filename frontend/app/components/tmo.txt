@@ -1,0 +1,15 @@
+const headers = [
+  "numero_facture",
+  "date",
+  "nom_vendeur",
+  "adresse_vendeur",
+  "ID_fiscal_vendeur",
+  "IBAN",
+  "nom_client",
+  "adresse_client",
+  "ID_fiscal_client",
+  "TVA",
+  "sous_total",
+  "taxe",
+  "total",
+];
