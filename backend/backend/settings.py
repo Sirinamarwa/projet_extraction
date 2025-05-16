@@ -96,10 +96,12 @@ CORS_ALLOWED_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:8000",
     "http://127.0.0.1:3000",
+    "https://0fc8-105-97-5-131.ngrok-free.app"
 ]
 CORS_ORIGINS_WHITELIST = [
     "http://127.0.0.1:8000",
     "http://127.0.0.1:3000",
+    "https://0fc8-105-97-5-131.ngrok-free.app"
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 

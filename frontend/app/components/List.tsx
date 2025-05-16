@@ -37,16 +37,25 @@ type Factures = {
 };
 
 const List = () => {
-  const [factures, setFactures] = useState<Factures[]>([]);
+   const [factures, setFactures] = useState<Factures[]>([]);
 
   useEffect(() => {
-  fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ocr/factures/`)
-    .then((res) => res.json())
-    .then((data) => {
-      if (data?.facture) {
-        setFactures(data.facture);
-      } else {
-        console.error("Facture data missing", data);
+  const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/ocr/factures/`;
+  console.log("Fetching from:", apiUrl);
+
+  fetch(apiUrl)
+    .then(async (res) => {
+      const text = await res.text();
+      console.log("Raw response:", text);
+      try {
+        const data = JSON.parse(text);
+        if (data?.facture) {
+          setFactures(data.facture);
+        } else {
+          console.error("Facture data missing", data);
+        }
+      } catch (e) {
+        console.error("Failed to parse JSON", e);
       }
     })
     .catch((err) => {
