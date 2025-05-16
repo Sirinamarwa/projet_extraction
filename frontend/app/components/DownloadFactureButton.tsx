@@ -1,9 +1,10 @@
  "use client";
 
 const DownloadFactureButton = () => {
- const handleDownload = () => {
+const handleDownload = () => {
   window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/api/ocr/download/`;
 };
+
 
   return (
     <button

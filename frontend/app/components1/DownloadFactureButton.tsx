@@ -2,8 +2,8 @@
 
 const DownloadFactureButton = () => {
   const handleDownload = () => {
-    window.location.href = "http://localhost:8000/api/ocr/download/";
-  };
+  window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/api/ocr/download/`;
+};
 
   return (
     <button
