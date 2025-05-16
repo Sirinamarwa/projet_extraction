@@ -4,8 +4,9 @@ import Image from "next/image";
 
  const DownloadjsonButton = () => {
    const handleDownload = () => {
-     window.location.href = "http://localhost:8000/api/ocr/downloadjson/";
-   };
+    window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/api/ocr/downloadjson/`;
+  };
+
  
    return (
     <button onClick={handleDownload} className="px-4 py-3 border-white bg-white/70 rounded-xl flex items-center gap-2 cursor-pointer shadow-md hover:bg-white/80 transition">

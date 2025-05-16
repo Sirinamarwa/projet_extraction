@@ -40,19 +40,20 @@ const List = () => {
   const [factures, setFactures] = useState<Factures[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/ocr/factures/")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.facture) {
-          setFactures(data.facture);
-        } else {
-          console.error("Facture data missing", data);
-        }
-      })
-      .catch((err) => {
-        console.error("Error fetching data:", err);
-      });
-  }, []);
+  fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ocr/factures/`)
+    .then((res) => res.json())
+    .then((data) => {
+      if (data?.facture) {
+        setFactures(data.facture);
+      } else {
+        console.error("Facture data missing", data);
+      }
+    })
+    .catch((err) => {
+      console.error("Error fetching data:", err);
+    });
+}, []);
+
 
   return (
     <div className="w-full overflow-x-auto px-12">
